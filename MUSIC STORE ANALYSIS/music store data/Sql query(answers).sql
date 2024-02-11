@@ -123,6 +123,3 @@ inner join album2 al on al.album_id=t.album_id
 inner join artist a on a.artist_id=al.artist_id
 group by c.customer_id,c.first_name,a.name
 order by spend desc;
-
-
- 
