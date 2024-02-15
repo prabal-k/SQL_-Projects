@@ -37,4 +37,40 @@ Select '           Name   'as nam,length('           Name   ') as name_length ,t
 -- mod(19,4) then output will be 3
 
 
+-- +++++++++++++++Part 44) limit () and offset() function
+-- Display subset of the output
+-- limit = filters the top n rows 
+-- for eg:
+-- if limit 30 then display only top 30 rows and skips other
+-- offset=skip the top n rows
+-- for eg:
+-- if offset 30 then skip the rop 30 rows and display other rows
+-- (in mysql i am not being able to use offset without using limit)
+
+Select * from order_dim;
+Select cust_id,order_id,total_amount_paid from order_dim 
+order by total_amount_paid desc limit 5 offset 2;
+
+
+-- +++++++++++++++UNION AND UNION ALL OPERATOR
+-- combine the results of 2 or more select statements
+-- Every select statement with union must have same no of columns and the columns must also have similar data types
+-- Union =removes the duplicate rows from the combined result set and ensure only unique value are in the final output
+-- Union all=includes all rows inculding the duplicate ones
+
+Select * from customer_dim;
+desc customer_dim;
+select * from delivery_person_dim;
+desc delivery_person_dim;
+
+Select phone from customer_dim
+union 
+select delivery_person_id from delivery_person_dim order by phone ;
+
+
+
+
+
+
+
 
